@@ -2,7 +2,6 @@
 const Supabase = require('../modules/DB-Client');
 const RequestIp = require('request-ip');
 const Webhook = require('../modules/Webhook');
-const FileStorage = require('../configs').SCRIPT_STORAGE_NAME;
 
 async function routes(fastify, options) {
   // Check if the request is from an executor
@@ -37,7 +36,7 @@ async function routes(fastify, options) {
   async function GetScript(path) {
     const { data, error } = await Supabase
       .storage
-      .from(FileStorage)
+      .from("catsec")
       .download(path);
 
     if (error || !data) return null;
