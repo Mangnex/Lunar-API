@@ -1,6 +1,6 @@
 // Dependences
 const Crypto = require('crypto');
-const { CustomDecrypt, CustomEncrypt, Encrypt, Decrypt } = require('../modules/CustomCrypto');
+const { CustomEncrypt, Encrypt, Decrypt } = require('../modules/CustomCrypto');
 const RequestIp = require('request-ip');
 const Supabase = require('../modules/DB-Client');
 const HMAC_KEY = require('../configs').HMAC_KEY;

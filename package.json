@@ -1,5 +1,5 @@
 {
-  "name": "testsupa",
+  "name": "lunarhub-api",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,13 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Mangnex",
+  "description": "API system for my Lunar Hub project",
   "dependencies": {
     "@fastify/autoload": "^6.3.1",
     "@supabase/supabase-js": "^2.52.0",
     "crypto": "^1.0.1",
     "discord.js": "^14.21.0",
-    "dotenv": "^17.2.0",
     "fastify": "^5.4.0",
     "request-ip": "^3.3.0"
   }

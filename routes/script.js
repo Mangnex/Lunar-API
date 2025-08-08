@@ -51,14 +51,14 @@ async function routes(fastify, options) {
   }
 
   // For Scripts
-  fastify.get('/script/:Name', async (request, reply) => {
-    const { Name } = request.params;
+  fastify.get('/script/:Hub/:Name', async (request, reply) => {
+    const { Hub, Name } = request.params;
 
     if (!/^[a-zA-Z]+$/.test(Name)) {
       return reply.send(await GetScript('Errors/InjectionAttempt.lua'));
     }
 
-    const Script = await GetScript(`Scripts/${Name}.lua`);
+    const Script = await GetScript(`${Hub}/Scripts/${Name}.lua`);
 
     if (!Script) {
       return reply.send(await GetScript('Errors/ScriptNotFound.lua'));
@@ -91,14 +91,14 @@ async function routes(fastify, options) {
   });
 
   // For Libraries
-  fastify.get('/library/:Name', async (request, reply) => {
-    const { Name } = request.params;
+  fastify.get('/library/:Hub/:Name', async (request, reply) => {
+    const { Hub, Name } = request.params;
 
     if (!/^[a-zA-Z]+$/.test(Name)) {
       return reply.send(await GetScript('Errors/InjectionAttempt.lua'));
     }
 
-    const Library = await GetScript(`Libraries/${Name}.lua`);
+    const Library = await GetScript(`${Hub}/Libraries/${Name}.lua`);
 
     if (!Library) {
       return reply.send(await GetScript('Errors/ScriptNotFound.lua'));
@@ -107,15 +107,15 @@ async function routes(fastify, options) {
     return reply.send(Library);
   });
 
-  // For Custom Scripts
-  fastify.get('/custom-script/:Name', async (request, reply) => {
-    const { Name } = request.params;
+  // For Comissions
+  fastify.get('/comission/:Hub/:Name', async (request, reply) => {
+    const { Hub, Name } = request.params;
 
     if (!/^[a-zA-Z]+$/.test(Name)) {
       return reply.send(await GetScript('Errors/InjectionAttempt.lua'));
     }
 
-    const Library = await GetScript(`CustomScripts/${Name}.lua`);
+    const Library = await GetScript(`${Hub}/Comissions/${Name}.lua`);
 
     if (!Library) {
       return reply.send(await GetScript('Errors/ScriptNotFound.lua'));
